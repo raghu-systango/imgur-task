@@ -4,6 +4,7 @@ var Link = ReactRouter.Link;
 var Reflux = require('reflux');
 var Actions = require('../actions');
 var ImageStore = require('../stores/image-store');
+// {this.state.hovering? this.ignore(event) : null}
 
 // {this.state.ignore ? this.ignore() : null}
 module.exports = React.createClass({
@@ -25,7 +26,6 @@ module.exports = React.createClass({
       >
       {this.props.animated && this.state.hovering ? this.video() : this.image()}
       {this.props.animated && !this.state.hovering ? this.icon() : null}
-      {this.state.hovering? this.ignore(event) : null}
     </Link>
   },
   onChange: function(event,images) {
