@@ -6,9 +6,10 @@ var _ = require('lodash');
 module.exports = Reflux.createStore({
    listenables: [Actions],
    getImage: function (id) {
-      Api.get('gallery/' + id + '/comments')
+      Api.get('allimages/' + id + '/comments')
          .then(function(json) {
-            this.comment = json.data;
+            console.log("aaaaaaaaaaaaaaaaaaaaaa", json)
+            this.comment = json.images.data;
             this.triggerChange();
          }.bind(this));
    },

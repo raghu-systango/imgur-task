@@ -9,10 +9,10 @@ module.exports = Reflux.createStore({
     console.log("selection_type", selection_type)
     console.log("sort_type", sort_type)
     console.log("window_type", window_type)
-    Api.get('gallery/' + selection_type + '/', sort_type + '/' + window_type)
+    Api.get('allimages/' + selection_type + '/' + sort_type + '/' + window_type)
       .then(function(json){
-        console.log(json.data)
-        this.images = _.reject(json.data, function(image) {
+        console.log(json.images.data)
+        this.images = _.reject(json.images.data, function(image) {
           return image.is_album
         });
 
